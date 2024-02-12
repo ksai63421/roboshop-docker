@@ -9,7 +9,7 @@ services:
    - roboshop
   catalogue:
    image: catalogue:v1
-   container_image: catalogue
+   container_name: catalogue
    networks:
    - roboshop
    depends_on:
