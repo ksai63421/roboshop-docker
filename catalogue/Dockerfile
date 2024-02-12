@@ -7,4 +7,5 @@ COPY server.js .
 # install the dependencies
 RUN npm install 
 ENV MONGO=true 
+useUnifiedTopology: true
 CMD ["node", "server.js"]
