@@ -14,11 +14,11 @@ services:
    - roboshop
    depends_on:
    - mongodb
-  reddis:
-   image: reddis:v1
-   container_name: reddis
-   networks:
-   - roboshop
+  # reddis:
+  #  image: reddis:v1
+  #  container_name: reddis
+  #  networks:
+  #  - roboshop
   user:
    image: user:v1
    container_name: user
