@@ -31,11 +31,11 @@ services:
    image: web:v1
    container_name: web
    networks:
-    - roboshop
-    ports:
-    - "80:80"
-    depends_on:
-    - catalogue
-    - user
+   - roboshop
+   ports:
+   - "80:80"
+   depends_on:
+   - catalogue
+   - user
    
   
