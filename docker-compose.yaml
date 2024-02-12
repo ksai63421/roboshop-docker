@@ -19,14 +19,14 @@ services:
   #  container_name: reddis
   #  networks:
   #  - roboshop
-  user:
-   image: user:v1
-   container_name: user
-   networks:
-   - roboshop
-   depends_on:
-   - mongodb
-   - reddis
+  # user:
+  #  image: user:v1
+  #  container_name: user
+  #  networks:
+  #  - roboshop
+  #  depends_on:
+  #  - mongodb
+  #  - reddis
   web:
    image: web:v1
    container_name: web
