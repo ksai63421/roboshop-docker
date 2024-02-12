@@ -4,4 +4,4 @@ RUN rm -rf /usr/share/nginx/html/index.html
 # I am copying our default reverse proxy conguration
 COPY roboshop.conf /etc/nginx/default.d/roboshop.conf 
 # I am copying our code here 
-ADD static /usr/share/nginx/html/
+ADD static /usr/share/nginx/html/ 
