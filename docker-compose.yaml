@@ -1,12 +1,22 @@
 networks:
   roboshop:
     driver: bridge
+volumes:
+  mongodb:
+  redis:
+  mysql:
+  rabbitmq:
 services:
   mongodb:
     image: mongodb:v1
     container_name: mongodb
     networks:
       - roboshop
+    volumes:
+      - source: mongodb
+        target: /data/db
+        type: volume
+
   catalogue:
     image: catalogue:v1
     container_name: catalogue
@@ -19,6 +29,11 @@ services:
     container_name: redis
     networks:
       - roboshop
+
+    volumes:
+      - source: redis
+        target: /data
+        type: volume
   user:
     image: user:v1
     container_name: user
@@ -39,6 +54,11 @@ services:
     networks:
       - roboshop
 
+    volumes:
+      - source: mysql
+        target: /var/lib/mysql
+        type: volume
+
   shipping:
     image: shipping:v1
     container_name: shipping
@@ -50,9 +70,17 @@ services:
 
   rabbitmq:
     image: rabbitmq
+    container_name: rabbitmq
+    networks:
+      - roboshop
     environment: 
     - RABBITMQ_DEFAULT_USER=roboshop \
     - RABBITMQ_DEFAULT_PASS=roboshop123
+
+    volumes:
+      - source: rabbitmq
+        target: /var/lib/rabbitmq
+        type: volume
 
   web:
     image: web:v1
