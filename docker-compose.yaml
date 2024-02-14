@@ -23,7 +23,7 @@ services:
     image: user:v1
     container_name: user
     networks:
-      - robsohop
+      - roboshop
 
   web:
     image: web:v1
