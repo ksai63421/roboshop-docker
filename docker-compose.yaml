@@ -11,9 +11,9 @@ services:
     image: catalogue:v1
     container_name: catalogue
     networks:
-      - roboshop
-      depends_on:
-      - mongodb
+    - roboshop
+    depends_on:
+    - mongodb
   redis:
     image: redis:v1
     container_name: redis
