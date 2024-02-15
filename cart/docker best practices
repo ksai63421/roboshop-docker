@@ -1,3 +1,27 @@
 best practices.
 ................
 1. use official images
+2. keep image size is low
+3. use multi stage builds 
+dont run containers with root access
+keep the env seperate from code
+persisst the logs
+maintain own network instead of default 
+create docker volumes 
+optimize layers:1
+..............
+
+dokcer architecture 
+...............
+
+client is inetract with docker dameon
+docker architecture contains docker client which is terminal and 
+docker daemon and local image registry and then central image registry nothing but docker hub 
+
+when we run docker command docker daemon will check whether the image is locally existed or not if not exist then it will pull the image from the docker hub  create the container out of it and responded to client..
+
+docker layers...
+........
+
+once the dokcer image is created can we modify the image.
+docker image is immutable
