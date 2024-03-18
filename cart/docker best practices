@@ -25,3 +25,94 @@ docker layers...
 
 once the dokcer image is created can we modify the image.
 docker image is immutable
+
+FROM almalinux:8
+1st instruction
+.........
+
+pulls image ....> will create container out of this image 
+
+layers1 container is created..
+inisde layers1 container docker is running 2nd instruction
+
+RUN yum install nginx -y
+
+now layers 2 image is crated..
+layers2 container is created by docker engine.
+on layer 2 container layer 3 instruction will run
+
+.....> RUN echo "Hello, welcome to dockerfile a way of creating own images" > /usr/share/nginx/html/hello.html
+
+now layer3 image is created and that is final.....
+
+when you increse the instructions it will increase the layers and build time as well and memory consumption is also  high 
+
+RUN yum install git -y \
+    && yum install maven -y \
+    && yum install gcc -y \
+
+
+optimize layers
+...........
+1. club multiple instructions into one, for example multipe run into 1 
+keep frequently changing instruction you have to keep it at the end
+    so that you build proccess will be very fast 
+
+
+
+
+
+disadvantages...
+......
+1. what happends docker server crashed
+2. what happens if you suddenly get more tarffic
+3. how to balance the load if you have multiple cart containers
+4. self healing
+5. what baout configs and secrets
+
+
+1. what happends docker server crashed..
+.............................
+
+application goes down
+loose the data also, docker volumes are inside the server only
+
+2. what happens if you suddenly get more tarffic..
+...............................................
+
+we have to run multiple containers we have to run manually ,
+
+3. how to balance the load if you have multiple cart containers ..
+..............................................
+4. self healing..
+....................
+
+if container is crahsed , how can you immediately run another container
+
+we need load balancers to overcome this 
+
+
+5. what about configs and secrets..
+..................................
+
+like we have SSM paramter store we kept the configuration outside ec2 server so that ec2 is fecting
+
+there is no environment to store secrets and configs 
+
+
+
+in order to overcome the above the disadvantages we need container orchestration...
+.................................................
+
+
+dokcer run...> creating container out of image
+
+image...>physical file and 
+container ...> running instance of image with some configuration
+
+we give kubernetes to take charge of running the images as orchestrator 
+
+doker swarm vs kubernetes..
+..................
+
+networking and storage solutions are better in kubernetes k8
